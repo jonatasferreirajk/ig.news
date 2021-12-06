@@ -17,6 +17,9 @@ export default NextAuth({
     signingKey: process.env.SIGNING_KEY,
   },*/
   callbacks: {
+    async session(session){
+      return session;
+    },
     async signIn(user, account, profile) {
       const { email } = user;
       /*
@@ -25,8 +28,10 @@ export default NextAuth({
         return true;
       } catch {
         return false;
-      }*/
-     console.log(user) 
+      }
+      console.log(user)
+      */
+      
      return true
     },
   },
